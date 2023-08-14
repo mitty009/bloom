@@ -1,15 +1,18 @@
-import { useState, useReducer } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React, { useState, useReducer, useRef } from 'react'
 import { Formik, Form } from 'formik'
 import CurrencyInput from 'react-currency-input-field'
-import { Box, Button, TextField, useTheme, FormGroup, Alert, Checkbox, FormControlLabel, CircularProgress, Divider, Typography, InputBase, IconButton, Autocomplete } from "@mui/material";
+import { Box, Button, TextField, useTheme, FormGroup, Alert, Checkbox, FormControlLabel, CircularProgress, Divider, Typography, InputBase, IconButton, Autocomplete, MenuItem } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import BloomLogo from "./assets/bnplogo.png"
 import './App.css'
+import emailjs from '@emailjs/browser';
 
 function App() {
   const isNonMobile = useMediaQuery("(min-width:1200px)");
+  const [loading, setLoading] = useState(false)
+  const form = useRef();
+  // const emailAPIKey = process.env.REACT_APP_EMAIL_API
+
 
   const calculateCompoundGrowth = (principal, annualRate, years) => {
     const n = 1
@@ -52,8 +55,16 @@ function App() {
       valueOfRentalIncomeAtRetirement: calculateCompoundGrowth(values.weeklyRentalIncome, 0.025, (Number(values.expectedRetirementAge) - Number(values.age)))
     }
     setValues(newValue)
-
   };
+
+  const sendEmail = (values) => {
+    emailjs.sendForm('service_x50jj6n', 'template_y6lr7wd', form.current, import.meta.env.VITE_EMAIL_API_KEY)
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+  }
 
 
   return (
@@ -65,9 +76,10 @@ function App() {
         <Typography variant='h5' color="white" alignContent="center" >SMSF Cashflow Calculator</Typography>
       </Box>
       <Formik
-        onSubmit={() => {
-          setSubmitting(false)
-          handleSubmit()
+        onSubmit={(values) => {
+          setLoading(true)
+          sendEmail(values)
+          setLoading(false)
         }}
         validateOnMount
         initialValues={initialValues}
@@ -79,13 +91,9 @@ function App() {
           handleBlur,
           handleChange,
           setValues,
-          setSubmitting,
-          isSubmitting,
-          handleSubmit,
-          isValid
         }) => (
 
-          <Form>
+          <Form ref={form}>
             <Box display="flex" alignContent="center" justifyContent="center" flexDirection={isNonMobile ? "row" : "column"} >
               <Box display="flex" backgroundColor="white" padding="20px 10px 0px 10px" width={isNonMobile ? "33%" : "100%"} height="100%" justifyContent="center" alignContent="center" flexDirection="column"
                 sx={{ "& > div": { margin: "10px 0px 10px 0px" } }}
@@ -118,7 +126,7 @@ function App() {
                   value={values.grossAnnualIncome}
                   prefix='$'
                   decimalScale={2}
-                  fixedDecimalScale={true}
+                  // fixedDecimalScale={true}
                   onValueChange={(value, name) => handleOnValueChange(value, name, setValues, values)}
                 />
 
@@ -130,7 +138,7 @@ function App() {
                   value={values.propertyPurchasePrice}
                   prefix='$'
                   decimalScale={2}
-                  fixedDecimalScale={true}
+                  // fixedDecimalScale={true}
                   onValueChange={(value, name) => handleOnValueChange(value, name, setValues, values)}
                 />
                 <CurrencyInput
@@ -165,7 +173,7 @@ function App() {
                   decimalScale={2}
                   onValueChange={(value, name) => handleOnValueChange(value, name, setValues, values)}
                 />
-                <Box display="flex" width="100%" justifyContent="space-between">
+                <Box display="flex" width="100%" justifyContent="space-between" flexWrap="wrap">
                   <CurrencyInput
                     customInput={TextField}
                     id="annualRentalIncome"
@@ -175,7 +183,7 @@ function App() {
                     prefix='$'
                     sx={{ width: "45%" }}
                     decimalScale={2}
-                    fixedDecimalScale={true}
+                    // fixedDecimalScale={true}
                     onValueChange={(value, name) => handleOnValueChange(value, name, setValues, values)}
                   />
                   <p>@</p>
@@ -187,8 +195,8 @@ function App() {
                     value={values.rentalYield}
                     sx={{ width: "45%" }}
                     suffix='%'
-                    decimalsScale={2}
-                    fixedDecimalLength={true}
+                    decimalScale={2}
+                    // fixedDecimalLength={true}
                     onValueChange={(value, name) => handleOnValueChange(value, name, setValues, values)}
                   />
                 </Box>
@@ -202,7 +210,7 @@ function App() {
                     value={values.employersContribution}
                     prefix='$'
                     decimalScale={2}
-                    fixedDecimalScale={true}
+                    // fixedDecimalScale={true}
                     onValueChange={(value, name) => handleOnValueChange(value, name, setValues, values)}
                   />
                   <Typography>SGC - Calculated at 12%; amount being received by 2025</Typography>
@@ -225,7 +233,7 @@ function App() {
                   value={values.taxDepreciationRebates}
                   prefix='$'
                   decimalScale={2}
-                  fixedDecimalScale={true}
+                  // fixedDecimalScale={true}
                   onValueChange={(value, name) => handleOnValueChange(value, name, setValues, values)}
                 />
                 <CurrencyInput
@@ -250,7 +258,7 @@ function App() {
                   label="Current Interest Rate"
                   value={values.currentInterestRate}
                   suffix='%'
-                  fixedDecimalScale={2}
+                  // fixedDecimalScale={2}
                   decimalScale={2}
                   onValueChange={(value, name) => handleOnValueChange(value, name, setValues, values)}
                 />
@@ -290,7 +298,7 @@ function App() {
                     value={values.buildingInsuranceOrBodyCorp}
                     prefix='$'
                     decimalScale={2}
-                    fixedDecimalScale={true}
+                    // fixedDecimalScale={true}
                     onValueChange={(value, name) => handleOnValueChange(value, name, setValues, values)}
                   />
                   <Typography>Average freehold single = $1800 or freehold dual occupation = $2200 Average THBC = $2500</Typography>
@@ -412,59 +420,49 @@ function App() {
                   onValueChange={(value, name) => handleOnValueChange(value, name, setValues, values)}
                 />
               </Box>
-              {/* </Box>
-              </Box> */}
             </Box>
-            <Box display="flex"
-            flexDirection="column" 
-            alignItems="center"
-            width="100%"
-            backgroundColor="#778777"
-            height="100%"
-            mt="20px"
-            sx={{ "& > div": { margin: "10px 0px 10px 0px" }}}
-            >
-            <TextField
-                  variant="filled"
-                  type="text"
-                  label="Agent"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  value={values.agent}
-                  name="agent"
-                  error={
-                    !!touched.agent &&
-                    !!errors.agent
-                  }
-                  helperText={
-                    touched.agent && errors.agent
-                  }
-                />
-            <TextField
-                  variant="filled"
-                  type="text"
-                  label="email"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  value={values.email}
-                  name="email"
-                  error={
-                    !!touched.email &&
-                    !!errors.email
-                  }
-                  helperText={
-                    touched.email && errors.email
-                  }
-                />
+            <Box display="flex" flexDirection="column" justifyContent="space-evenly" alignItems="center" backgroundColor="#eee" height="200px" sx={{ "& > div": { width: "50%" } }}>
+              <TextField
+                variant="filled"
+                type="text"
+                label="Agent"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                value={values.agent}
+                name="agent"
+                error={
+                  !!touched.agent &&
+                  !!errors.agent
+                }
+                helperText={
+                  touched.agent && errors.agent
+                }
+              />
+              <TextField
+                variant="filled"
+                type="email"
+                label="Email Address to Send Results"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                value={values.email}
+                name="email"
+
+                error={
+                  !!touched.email &&
+                  !!errors.email
+                }
+                helperText={
+                  touched.email && errors.email
+                }
+              />
               <Button
-                sx={{ mr: "10px" }}
                 type="submit"
                 color="primary"
                 name="createClientButton"
                 variant="outlined"
-                disabled={isSubmitting}
+                disabled={loading}
               >
-                {isSubmitting ? (
+                {loading ? (
                   <CircularProgress size={20} color="inherit" />
                 ) : (
                   "Submit Calculator"
@@ -481,10 +479,11 @@ function App() {
 
 const initialValues = {
   name: "",
+  email: "",
   currentInterestRate: 7.09,
   councilAndWaterRates: 2340,
   buildingInsuranceOrBodyCorp: 1800,
-  adminFees: 2988,
+  adminFees: 2200,
   yearsTilPropertyDebtFree: "",
   expectedRetirementAge: "65",
 }
