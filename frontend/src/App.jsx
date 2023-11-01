@@ -11,8 +11,6 @@ function App() {
   const isNonMobile = useMediaQuery("(min-width:1200px)");
   const [loading, setLoading] = useState(false)
   const form = useRef();
-  // const emailAPIKey = process.env.REACT_APP_EMAIL_API
-
 
   const calculateCompoundGrowth = (principal, annualRate, years) => {
     const n = 1
@@ -44,7 +42,7 @@ function App() {
       rentalYield: (values.annualRentalIncome / Number(values.propertyPurchasePrice)) * 100,
       employersContribution: values.grossAnnualIncome * 0.12,
       taxDepreciationRebates: values.propertyPurchasePrice * 0.003,
-      totalIncomings: values.employersContribution + values.taxDepreciationRebates + values.annualRentalIncome,
+      totalIncomings: values.employersContribution + values.taxDepreciationRebates + values.annualRentalIncome + values.salarySacrifice,
       loanInterest: calculateLoanInterest(values.loanAmount, values.currentInterestRate, (values.expectedRetirementAge - values.age)),
       propertyValueAtRetirement: calculateCompoundGrowth(Number(values.propertyPurchasePrice), 0.04, (65 - Number(values.age))),
       propertyManagementFees: values.annualRentalIncome * 0.088,
@@ -68,7 +66,8 @@ function App() {
 
 
   return (
-    <Box alignItems="center" display="flex" flexDirection="column" alignContent="center" backgroundColor="#778777" >
+    <Box alignItems="center" display="flex" flexDirection="column" alignContent="center" backgroundColor="#778777"
+    >
       <Box display="flex" flexDirection="row" width="100%" justifyContent="center" alignContent="center" alignItems="center">
         <Box>
           <img src={BloomLogo} alt="Bloom Logo" style={{ width: "100%", maxWidth: "90%", height: "auto" }} />
@@ -94,7 +93,9 @@ function App() {
         }) => (
 
           <Form ref={form}>
-            <Box display="flex" alignContent="center" justifyContent="center" flexDirection={isNonMobile ? "row" : "column"} >
+            <Box display="flex" alignContent="center" height="auto"justifyContent="center" flexDirection={isNonMobile ? "row" : "column"}
+            sx={{"& label.Mui-focused": { color: "#778777"}}}
+            >
               <Box display="flex" backgroundColor="white" padding="20px 10px 0px 10px" width={isNonMobile ? "33%" : "100%"} height="100%" justifyContent="center" alignContent="center" flexDirection="column"
                 sx={{ "& > div": { margin: "10px 0px 10px 0px" } }}
               >
@@ -421,7 +422,7 @@ function App() {
                 />
               </Box>
             </Box>
-            <Box display="flex" flexDirection="column" justifyContent="space-evenly" alignItems="center" backgroundColor="#eee" height="200px" sx={{ "& > div": { width: "50%" } }}>
+            <Box display="flex" flexDirection="column" backgroundColor="#eee" alignContent="center" pt="20px"  sx={{ "& > div": { mt:"10px", color: "green"} }}>
               <TextField
                 variant="filled"
                 type="text"
@@ -461,6 +462,7 @@ function App() {
                 name="createClientButton"
                 variant="outlined"
                 disabled={loading}
+                sx={{mt: "10px"}}
               >
                 {loading ? (
                   <CircularProgress size={20} color="inherit" />
