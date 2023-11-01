@@ -42,7 +42,7 @@ function App() {
       rentalYield: (values.annualRentalIncome / Number(values.propertyPurchasePrice)) * 100,
       employersContribution: values.grossAnnualIncome * 0.12,
       taxDepreciationRebates: values.propertyPurchasePrice * 0.003,
-      totalIncomings: values.employersContribution + values.taxDepreciationRebates + values.annualRentalIncome + values.salarySacrifice,
+      totalIncomings: values.employersContribution + values.taxDepreciationRebates + values.annualRentalIncome + Number(values.salarySacrifice),
       loanInterest: calculateLoanInterest(values.loanAmount, values.currentInterestRate, (values.expectedRetirementAge - values.age)),
       propertyValueAtRetirement: calculateCompoundGrowth(Number(values.propertyPurchasePrice), 0.04, (65 - Number(values.age))),
       propertyManagementFees: values.annualRentalIncome * 0.088,
