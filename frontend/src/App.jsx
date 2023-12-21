@@ -318,7 +318,7 @@ function App() {
                   customInput={TextField}
                   id="adminFees"
                   name="adminFees"
-                  label="Admin, Accounting, Audition & Registration Fees"
+                  label="Admin, Accounting, Auditing & Registration Fees"
                   value={values.adminFees}
                   prefix='$'
                   decimalScale={2}
