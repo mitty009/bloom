@@ -488,6 +488,9 @@ const initialValues = {
   adminFees: 2200,
   yearsTilPropertyDebtFree: "",
   expectedRetirementAge: "65",
+  salarySacrifice: 0,
+  buildingInsuranceOrBodyCorp: 2500,
+  adminFees: 2800
 }
 
 
