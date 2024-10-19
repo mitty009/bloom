@@ -82,14 +82,22 @@ function App() {
   };
 
 
-  const sendEmail = (values) => {
-    emailjs.sendForm('service_x50jj6n', 'template_y6lr7wd', form.current, import.meta.env.VITE_EMAIL_API_KEY)
-      .then((result) => {
-        console.log(result.text);
-      }, (error) => {
-        console.log(error.text);
-      });
-  }
+  const sendEmail = () => {
+    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+    emailjs.sendForm(
+      'service_e72kwfb',
+      'template_y6lr7wd',
+      form.current, // Correctly pass the form reference
+      import.meta.env.VITE_EMAIL_API_KEY
+    )
+    .then((result) => {
+      console.log('Email sent:', result.text);
+    })
+    .catch((error) => {
+      console.error('Email send error:', error.text);
+    });
+  };
+  
 
 
   return (
@@ -356,7 +364,7 @@ function App() {
                           <Typography
                             sx={{ minWidth: '100px', fontWeight: 400, marginBottom: "10px", fontSize: "14px", color: '#4A4A4A' }}
                           >
-                            Total:
+                            Total Earnings:
                           </Typography>
                           <CurrencyInput
                             customInput={TextField}
@@ -377,34 +385,35 @@ function App() {
                         <h3>Super Fund Expenses</h3>
                       </div>
                       <div className="container item-grid">
-                        <div className="currency-input item item-4">
+                        <div className="item">
                           <Typography
                             sx={{ minWidth: '100px', fontWeight: 400, marginBottom: "10px", fontSize: "14px", color: '#4A4A4A' }}
                           >
-                            Current Interest Rates
+                            Current Interest Rate:
                           </Typography>
 
-                          <CurrencyInput
-                            customInput={TextField}
-                            id="currentInterestRate"
-                            name="currentInterestRate"
+                          <TextField
+                            fullWidth
+                            type="text"
+                            onBlur={handleBlur}
+                            onChange={handleChange}
                             value={values.currentInterestRate}
-                            suffix='%'
-                            // fixedDecimalScale={2}
-                            decimalScale={2}
-                            onValueChange={(value, name) => handleOnValueChange(value, name, setValues, values)}
+                            name="currentInterestRate"
+                            error={
+                              !!touched.currentInterestRate &&
+                              !!errors.currentInterestRate
+                            }
+                            helperText={
+                              touched.currentInterestRate && errors.currentInterestRate
+                            }
                           />
-
                         </div>
                         <div className="currency-input item">
-
                           <Typography
                             sx={{ minWidth: '100px', fontWeight: 400, marginBottom: "10px", fontSize: "14px", color: '#4A4A4A' }}
                           >
                             Loan Interest:
                           </Typography>
-
-
                           <Box display="flex" justifyContent="space-around">
                             <CurrencyInput
                               customInput={TextField}
@@ -518,7 +527,7 @@ function App() {
                           <Typography
                             sx={{ minWidth: '100px', fontWeight: 400, marginBottom: "10px", fontSize: "14px", color: '#4A4A4A' }}
                           >
-                            Total:
+                            Total Expenses:
                           </Typography>
                           <CurrencyInput
                             customInput={TextField}
@@ -628,8 +637,8 @@ function App() {
 
                         </div>
 
-                        
-                       
+
+
                         <div className="currency-input item">
                           <Typography
                             sx={{ minWidth: '100px', fontWeight: 400, marginBottom: "10px", fontSize: "14px", color: '#4A4A4A' }}
