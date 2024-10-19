@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
-    "@emotion/styled": "^11.11.0",
-    "@mui/material": "^5.14.4",
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@mui/icons-material": "^6.1.4",
+    "@mui/material": "^6.1.4",
     "formik": "^2.4.3",
     "react": "^18.2.0",
     "react-currency-input-field": "^3.6.11",

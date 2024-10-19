@@ -25,7 +25,7 @@ const theme = createTheme({
             height: 40, // Consistent height for all TextFields
             padding: 0,
             borderRadius: "12px", // Ensure rounded corners
-            backgroundColor: "#f4f4f4",
+            backgroundColor: "white",
 
           },
           "& .MuiInputBase-input": {
