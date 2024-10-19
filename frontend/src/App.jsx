@@ -83,22 +83,20 @@ function App() {
 
 
   const sendEmail = () => {
-    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+    emailjs.init(import.meta.env.VITE_EMAILJS_API_KEY);
     emailjs.sendForm(
-      'service_e72kwfb',
-      'template_y6lr7wd',
-      form.current, // Correctly pass the form reference
+      import.meta.env.VITE_EMAIL_SERVICE_ID,
+      import.meta.env.VITE_EMAIL_TEMPLATE_ID,
+      form.current,
       import.meta.env.VITE_EMAIL_API_KEY
     )
-    .then((result) => {
-      console.log('Email sent:', result.text);
-    })
-    .catch((error) => {
-      console.error('Email send error:', error.text);
-    });
+      .then((result) => {
+        console.log('Email sent:', result.text);
+      })
+      .catch((error) => {
+        console.error('Email send error:', error.text);
+      });
   };
-  
-
 
   return (
     <main>
@@ -163,7 +161,7 @@ function App() {
                           />
                         </div>
 
-                        <div className="currency-input item item-3">
+                        <div className="currency-input item">
                           <Typography
                             sx={{ minWidth: '100px', fontWeight: 400, marginBottom: "10px", fontSize: "14px", color: '#4A4A4A' }}
                           >
@@ -744,20 +742,31 @@ function App() {
                               my: 2, // Margin for spacing
                             }}
                           />
-                          <Button
-                            type="submit"
-                            color="primary"
-                            name="createClientButton"
-                            variant="outlined"
-                            disabled={loading}
-                            sx={{ mt: "10px" }}
-                          >
-                            {loading ? (
-                              <CircularProgress size={20} color="inherit" />
-                            ) : (
-                              "Submit"
-                            )}
-                          </Button>
+                          <Box display="flex" justifyContent="space-around">
+                            <Button
+                              type="submit"
+                              color="primary"
+                              name="createClientButton"
+                              variant="outlined"
+                              disabled={loading}
+                              sx={{ mt: "10px" }}
+                            >
+                              {loading ? (
+                                <CircularProgress size={20} color="inherit" />
+                              ) : (
+                                "Submit"
+                              )}
+                            </Button>
+                            <Button
+                              color="secondary"
+                              variant="outlined"
+                              disabled={loading}
+                              sx={{ mt: "10px", ml: "20px" }}
+                              onClick={() => setValues(initialValues)}
+                            >
+                              Clear Form
+                            </Button>
+                          </Box>
                         </div>
                       </div>
                     </aside>
