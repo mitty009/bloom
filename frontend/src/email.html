@@ -1,0 +1,82 @@
+<div style="font-family: 'Montserrat', sans-serif; background-color: #bbcbbb; padding: 20px; max-width: 1100px">
+    <h1 style="text-align: center; background-color: #bbcbbb; color: white; padding: 20px; margin-bottom: 20px; font-weight: 300;">
+      SMSF Cashflow Calculator Results
+    </h1>
+  
+    <p style="margin-bottom: 20px;">
+      <span style="font-family: 'Montserrat', palatino, serif;">Hey {{name}},</span>
+    </p>
+    <p style="margin-bottom: 20px;">
+      <span style="font-family: 'Montserrat', palatino, serif;">
+        Thanks for completing a cashflow calculator scenario with Bloom & Partners. Please see your results below.
+      </span>
+    </p>
+  
+    <div style="background-color: #f4f4f4; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); margin-bottom: 30px;">
+      <h3 style="padding: 10px 20px; background: linear-gradient(90deg, #4facfe, #f093fb); color: white; font-weight: 400; border-radius: 5px;">
+        Scenario
+      </h3>
+      <p><strong>Gross Annual Income:</strong> {{grossAnnualIncome}}</p>
+      <p><strong>Property Purchase Price:</strong> {{propertyPurchasePrice}}</p>
+      <p><strong>Deposit from Super:</strong> {{depositFromSuper}}</p>
+      <p><strong>Loan Amount:</strong> {{loanAmount}}</p>
+    </div>
+  
+    <div style="background-color: #f4f4f4; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); margin-bottom: 30px;">
+      <h3 style="padding: 10px 20px; background: linear-gradient(90deg, #4facfe, #f093fb); color: white; font-weight: 400; border-radius: 5px;">
+        Super Fund Earnings
+      </h3>
+      <p><strong>Weekly Rental Income:</strong> {{weeklyRentalIncome}}</p>
+      <p><strong>Annual Rental Income:</strong> {{annualRentalIncome}} @ {{rentalYield}}% Rental Yield</p>
+      <p><strong>Employers Contribution:</strong> {{employersContribution}}</p>
+      <p><strong>Salary Sacrifice:</strong> {{salarySacrifice}}</p>
+      <p><strong>Tax Depreciation Rebates:</strong> {{taxDepreciationRebates}}</p>
+    </div>
+  
+    <div style="background-color: #f4f4f4; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); margin-bottom: 30px;">
+      <h3 style="padding: 10px 20px; background: linear-gradient(90deg, #4facfe, #f093fb); color: white; font-weight: 400; border-radius: 5px;">
+        Expenses
+      </h3>
+      <p><strong>Council and Water Rates:</strong> {{councilAndWaterRates}}</p>
+      <p><strong>Building Insurance or Body Corporate:</strong> {{buildingInsuranceOrBodyCorp}}</p>
+      <p><strong>Loan Interest:</strong> {{loanInterest}}</p>
+      <p><strong>Admin, Accounting, and Registration Fees:</strong> {{adminFees}}</p>
+      <p><strong>Total Expenses:</strong> {{totalOutgoings}}</p>
+    </div>
+  
+    <div style="background-color: #f4f4f4; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); margin-bottom: 30px;">
+      <h3 style="padding: 10px 20px; background: linear-gradient(90deg, #4facfe, #f093fb); color: white; font-weight: 400; border-radius: 5px;">
+        Retirement Projection
+      </h3>
+      <p><strong>Age:</strong> {{age}}</p>
+      <p><strong>Expected Retirement Age:</strong> {{expectedRetirementAge}}</p>
+      <p><strong>Years Until Property Debt Free:</strong> {{yearsTilPropertyDebtFree}}</p>
+      <p><strong>Property Value at Retirement:</strong> {{propertyValueAtRetirement}}</p>
+      <p><strong>Cash Balance at Retirement:</strong> {{cashBalanceAtRetirement}}</p>
+      <p><strong>Value of Rental Income at Retirement:</strong> {{valueOfRentalIncomeAtRetirement}}</p>
+    </div>
+  
+    <div style="background-color: #f4f4f4; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); margin-bottom: 30px;">
+      <h3 style="padding: 10px 20px; background: linear-gradient(90deg, #4facfe, #f093fb); color: white; font-weight: 400; border-radius: 5px;">
+        Summary
+      </h3>
+      <p>So to sum it up...if you purchase a property for {{propertyPurchasePrice}}, you could potentially bring in around {{totalIncomings}} each year. After accounting for estimated annual expenses of {{totalOutgoings}}, you’re looking at a net yearly cash flow of about {{annualCashFlow}}.</p>
+      <p>Based on our calculations, you could fully pay off your property loan and own it outright in about {{yearsTilPropertyDebtFree}} years. *Just a heads up, these are conservative estimates for illustration.</p>
+      <ul>
+        <li>Expect rental income to grow over time.</li>
+        <li>Potential wage increases in your earnings.</li>
+        <li>We've factored in a 12% superannuation contribution from your {{grossAnnualIncome}}, kicking in by 2025.</li>
+      </ul>
+      <p>When you retire at {{expectedRetirementAge}}, your property could be worth at least {{propertyValueAtRetirement}}, assuming a modest 4% annual growth rate (historically, it’s been around 6.8%).</p>
+      <p>Once the property is paid off, you’ll continue to receive rent (estimated at {{weeklyRentalIncome}} based on today’s value) along with employer super contributions. We project a minimum super balance of {{cashBalanceAtRetirement}} by retirement.</p>
+      <p>By age {{expectedRetirementAge}}, your rent could potentially reach {{valueOfRentalIncomeAtRetirement}}. This extra income could boost your retirement funds or pension—totally up to you. This estimate assumes a conservative 2.5% annual growth rate.</p>
+    </div>
+  
+    <p style="text-align: center; margin-top: 20px; font-weight: 400;">
+      Thank you for using the Cashflow Calculator! If you have any questions, feel free to reach out to the Bloom team.
+    </p>
+  
+    <p style="text-align: center; font-weight: 300;">Best wishes,</p>
+    <p style="text-align: center; font-weight: 300;">Bloom and Partners</p>
+  </div>
+  

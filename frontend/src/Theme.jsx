@@ -26,16 +26,17 @@ const theme = createTheme({
             padding: 0,
             borderRadius: "12px", // Ensure rounded corners
             backgroundColor: "white",
+           
 
           },
           "& .MuiInputBase-input": {
             height: "100%",
             width: "100%",
             padding: "0 10px", // Comfortable padding
-            fontSize: "14px",
+            fontSize: "12px",
             lineHeight: 1.2,
             boxSizing: "border-box",
-            margin: "10px"
+
           },
         },
       },
@@ -48,13 +49,13 @@ const theme = createTheme({
             height: 40, // Matching height for consistency
             padding: 0,
             borderRadius: "12px",
-            backgroundColor: "#eee", // Same background as TextFields
+            // backgroundColor: "#eee", // Same background as TextFields
             color: "#333", // Ensure readable text colour
           },
           "& .MuiSelect-select": {
             height: "100%",
             padding: "0 10px",
-            fontSize: "14px",
+            fontSize: "12px",
             lineHeight: 1.2,
             boxSizing: "border-box",
             borderRadius: "12px",
@@ -77,7 +78,7 @@ const theme = createTheme({
             height: 40, // Matching height for Autocomplete inputs
             padding: 0,
             borderRadius: "12px", // Rounded corners
-            backgroundColor: "#eee", // Same background for consistency
+            // backgroundColor: "#eee", // Same background for consistency
             fontFamily: "'Montserrat', sans-serif", // Font consistency in Autocomplete
           },
           "& .MuiAutocomplete-input": {

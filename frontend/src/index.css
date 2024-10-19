@@ -4,29 +4,37 @@
   box-sizing: border-box;
 }
 
-body, html, section, aside {
-  background-color: #778777;
-  /* background-color: #eee; */
+body,
+html,
+section,
+aside {
+
   font-family: 'Montserrat', sans-serif;
-  height:100%;
+  height: 100%;
   overflow: visible;
+}
+
+body {
+  background: #bbcbbb;
 }
 
 .header {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  max-width: 1400px;
-  margin: 20px auto;
+  margin: 0px auto;
+  background-color: #778777;
 }
 
 .header img {
   width: 200px;
+
 }
 
 .header h1 {
   color: white;
-
+  font-weight: 300;
+  
 }
 
 .form-section {
@@ -41,12 +49,11 @@ body, html, section, aside {
 
 .card {
   border-radius: 8px;
-  margin: 50px 20px 20px 20px;
+  margin: 20px 20px 20px 20px;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  background-color: white;
+  background-color: #f4f4f4;
 }
-
 
 /* Grid Container Layouts */
 .container {
@@ -60,41 +67,48 @@ body, html, section, aside {
 }
 
 .form-section {
-margin: 10px auto;
-overflow: visible;
+  margin: 10px auto;
+  overflow: visible;
 }
 
 /* Ensure the grid container fills the available space */
 .container.item-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Example: 3 equal columns */
-  gap: 1.2rem; /* Spacing between items */
-  width: 100%; /* Full width of the parent */
+  grid-template-columns: repeat(2, 1fr);
+  /* Example: 3 equal columns */
+  gap: 1.2rem;
+  /* Spacing between items */
+  width: 100%;
+  /* Full width of the parent */
 }
 
 /* Ensure all grid items fill their column */
 .item {
-  width: 100%; /* Ensure items take full width */
+  width: 100%;
+  /* Ensure items take full width */
   margin-bottom: 10px;
 }
 
 /* Ensure the currency input container takes the full width */
 .currency-input {
-  width: 100%; /* Full width for the parent container */
+  width: 100%;
+  /* Full width for the parent container */
 }
 
 /* Ensure the MUI components within CurrencyInput fill the width */
 .currency-input .MuiFormControl-root {
-  width: 100%; /* Ensure MUI FormControl takes full width */
+  width: 100%;
+  /* Ensure MUI FormControl takes full width */
 }
 
 .currency-input .MuiInputBase-root {
-  width: 100%; /* Ensure the InputBase fills the parent */
+  width: 100%;
+  /* Ensure the InputBase fills the parent */
 }
 
 .currency-input .MuiInputBase-input {
-  width: 100%; 
-  box-sizing: border-box; 
+  width: 100%;
+  box-sizing: border-box;
 }
 
 
@@ -105,7 +119,6 @@ overflow: visible;
 
   h3 {
     padding: 10px 20px;
-    background-color: white;
     font-weight: 400;
     background: linear-gradient(90deg, #4facfe, #f093fb);
     color: white;
@@ -116,16 +129,16 @@ overflow: visible;
 
 .flex-container {
   display: flex;
-  overflow: visible; 
+  overflow: visible;
   justify-content: center;
   max-width: 1400px;
   flex-wrap: wrap;
 }
 
-.card-4 {
+.card-5 {
   position: sticky;
-  top: 20px; /* Stick 20px from the top of the viewport */
-  background-color: #fff;
+  top: 20px;
+  /* Stick 20px from the top of the viewport */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 }

@@ -127,12 +127,12 @@ function App() {
                   <div className='flex-item-1'>
                     <div className="card card-1">
                       <div className="section-header">
-                        <h3>Earnings</h3>
+                        <h3>Scenario</h3>
                       </div>
                       <div className="container item-grid">
                         <div className="item item-1">
                           <Typography
-                            sx={{ minWidth: '100px', fontWeight: 500, color: '#4A4A4A' }}
+                            sx={{ minWidth: '100px', fontWeight: 400, marginBottom: "10px", fontSize: "14px", color: '#4A4A4A' }}
                           >
                             Name:
                           </Typography>
@@ -154,25 +154,12 @@ function App() {
                             }
                           />
                         </div>
+
                         <div className="currency-input item item-3">
                           <Typography
-                            sx={{ minWidth: '100px', fontWeight: 500, color: '#4A4A4A' }}
+                            sx={{ minWidth: '100px', fontWeight: 400, marginBottom: "10px", fontSize: "14px", color: '#4A4A4A' }}
                           >
-                            Age:
-                          </Typography>
-                          <CurrencyInput
-                            customInput={TextField}
-                            id="age"
-                            name="age"
-                            value={values.age}
-                            onValueChange={(value, name) => handleOnValueChange(value, name, setValues, values)}
-                          />
-                        </div>
-                        <div className="currency-input item item-3">
-                          <Typography
-                            sx={{ minWidth: '100px', fontWeight: 500, color: '#4A4A4A' }}
-                          >
-                            Gross Annual Income (Combined)
+                            Gross Annual Income (Combined):
                           </Typography>
                           <CurrencyInput
                             customInput={TextField}
@@ -187,7 +174,7 @@ function App() {
 
                         <div className="currency-input item item-4">
                           <Typography
-                            sx={{ minWidth: '100px', fontWeight: 500, color: '#4A4A4A' }}
+                            sx={{ minWidth: '100px', fontWeight: 400, marginBottom: "10px", fontSize: "14px", color: '#4A4A4A' }}
                           >
                             Property Purchase Price:
                           </Typography>
@@ -203,7 +190,7 @@ function App() {
                         </div>
                         <div className="currency-input item item-5">
                           <Typography
-                            sx={{ minWidth: '100px', fontWeight: 500, color: '#4A4A4A' }}
+                            sx={{ minWidth: '100px', fontWeight: 400, marginBottom: "10px", fontSize: "14px", color: '#4A4A4A' }}
                           >
                             Deposit from Super:
                           </Typography>
@@ -220,7 +207,7 @@ function App() {
 
                         <div className="currency-input item item1">
                           <Typography
-                            sx={{ minWidth: '100px', fontWeight: 500, color: '#4A4A4A' }}
+                            sx={{ minWidth: '100px', fontWeight: 400, marginBottom: "10px", fontSize: "14px", color: '#4A4A4A' }}
                           >
                             Loan Amount:
                           </Typography>
@@ -235,11 +222,19 @@ function App() {
                           />
 
                         </div>
+                      </div>
+                    </div>
+
+                    <div className="card card-2">
+                      <div className="section-header">
+                        <h3>Super Fund Earnings</h3>
+                      </div>
+                      <div className="container item-grid">
                         <div className="currency-input item item1">
                           <Typography
-                            sx={{ minWidth: '100px', fontWeight: 500, color: '#4A4A4A' }}
+                            sx={{ minWidth: '100px', fontWeight: 400, marginBottom: "10px", fontSize: "14px", color: '#4A4A4A' }}
                           >
-                            Weekly Rental Income
+                            Weekly Rental Income:
                           </Typography>
                           <CurrencyInput
                             customInput={TextField}
@@ -254,7 +249,7 @@ function App() {
                         </div>
                         <div className="currency-input item item1">
                           <Typography
-                            sx={{ minWidth: '100px', fontWeight: 500, color: '#4A4A4A' }}
+                            sx={{ minWidth: '100px', fontWeight: 400, marginBottom: "10px", fontSize: "14px", color: '#4A4A4A' }}
                           >
                             Annual Rental Income:
                           </Typography>
@@ -273,7 +268,7 @@ function App() {
                         </div>
                         <div className="currency-input item item1">
                           <Typography
-                            sx={{ minWidth: '100px', fontWeight: 500, color: '#4A4A4A' }}
+                            sx={{ minWidth: '100px', fontWeight: 400, marginBottom: "10px", fontSize: "14px", color: '#4A4A4A' }}
                           >
                             Rental Yield:
                           </Typography>
@@ -292,7 +287,7 @@ function App() {
                         </div>
                         <div className="currency-input item item1">
                           <Typography
-                            sx={{ minWidth: '100px', fontWeight: 500, color: '#4A4A4A' }}
+                            sx={{ minWidth: '100px', fontWeight: 400, marginBottom: "10px", fontSize: "14px", color: '#4A4A4A' }}
                           >
                             Employers Super Contribution:
                           </Typography>
@@ -317,7 +312,7 @@ function App() {
                         </div>
                         <div className="currency-input item item1">
                           <Typography
-                            sx={{ minWidth: '100px', fontWeight: 500, color: '#4A4A4A' }}
+                            sx={{ minWidth: '100px', fontWeight: 400, marginBottom: "10px", fontSize: "14px", color: '#4A4A4A' }}
                           >
                             Salary Sacrifice:
                           </Typography>
@@ -334,7 +329,7 @@ function App() {
                         </div>
                         <div className="currency-input item item1">
                           <Typography
-                            sx={{ minWidth: '100px', fontWeight: 500, color: '#4A4A4A' }}
+                            sx={{ minWidth: '100px', fontWeight: 400, marginBottom: "10px", fontSize: "14px", color: '#4A4A4A' }}
                           >
                             Tax Depreciation Rebates:
                           </Typography>
@@ -348,19 +343,20 @@ function App() {
                             // fixedDecimalScale={true}
                             onValueChange={(value, name) => handleOnValueChange(value, name, setValues, values)}
                           />
-
                         </div>
+
                         <Divider
                           sx={{
                             gridColumn: '1 / 3', // Span across column 1 and 2
                             my: 2, // Margin for spacing
                           }}
                         />
+
                         <div className="currency-input item item1">
                           <Typography
-                            sx={{ minWidth: '100px', fontWeight: 500, color: '#4A4A4A' }}
+                            sx={{ minWidth: '100px', fontWeight: 400, marginBottom: "10px", fontSize: "14px", color: '#4A4A4A' }}
                           >
-                            Total Incomings:
+                            Total:
                           </Typography>
                           <CurrencyInput
                             customInput={TextField}
@@ -376,14 +372,14 @@ function App() {
                       </div>
                     </div>
 
-                    <div className="card card-2">
+                    <div className="card card-3">
                       <div className="section-header">
-                        <h3>Outgoings</h3>
+                        <h3>Super Fund Expenses</h3>
                       </div>
                       <div className="container item-grid">
                         <div className="currency-input item item-4">
                           <Typography
-                            sx={{ minWidth: '100px', fontWeight: 500, color: '#4A4A4A' }}
+                            sx={{ minWidth: '100px', fontWeight: 400, marginBottom: "10px", fontSize: "14px", color: '#4A4A4A' }}
                           >
                             Current Interest Rates
                           </Typography>
@@ -403,7 +399,7 @@ function App() {
                         <div className="currency-input item">
 
                           <Typography
-                            sx={{ minWidth: '100px', fontWeight: 500, color: '#4A4A4A' }}
+                            sx={{ minWidth: '100px', fontWeight: 400, marginBottom: "10px", fontSize: "14px", color: '#4A4A4A' }}
                           >
                             Loan Interest:
                           </Typography>
@@ -429,7 +425,7 @@ function App() {
                         </div>
                         <div className="currency-input item">
                           <Typography
-                            sx={{ minWidth: '100px', fontWeight: 500, color: '#4A4A4A' }}
+                            sx={{ minWidth: '100px', fontWeight: 400, marginBottom: "10px", fontSize: "14px", color: '#4A4A4A' }}
                           >
                             Council and Water Rates:
                           </Typography>
@@ -453,7 +449,7 @@ function App() {
                         </div>
                         <div className="currency-input item">
                           <Typography
-                            sx={{ minWidth: '100px', fontWeight: 500, color: '#4A4A4A' }}
+                            sx={{ minWidth: '100px', fontWeight: 400, marginBottom: "10px", fontSize: "14px", color: '#4A4A4A' }}
                           >
                             Building Insurance or Body Corperate:
                           </Typography>
@@ -479,7 +475,7 @@ function App() {
                         </div>
                         <div className="currency-input item">
                           <Typography
-                            sx={{ minWidth: '100px', fontWeight: 500, color: '#4A4A4A' }}
+                            sx={{ minWidth: '100px', fontWeight: 400, marginBottom: "10px", fontSize: "14px", color: '#4A4A4A' }}
                           >
                             Rental & Property Management Fees:
                           </Typography>
@@ -496,7 +492,7 @@ function App() {
                         </div>
                         <div className="currency-input item">
                           <Typography
-                            sx={{ minWidth: '100px', fontWeight: 500, color: '#4A4A4A' }}
+                            sx={{ minWidth: '100px', fontWeight: 400, marginBottom: "10px", fontSize: "14px", color: '#4A4A4A' }}
                           >
                             Admin, Accounting, Auditing & Registration Fees
                           </Typography>
@@ -517,11 +513,12 @@ function App() {
                             my: 2, // Margin for spacing
                           }}
                         />
+
                         <div className="currency-input item">
                           <Typography
-                            sx={{ minWidth: '100px', fontWeight: 500, color: '#4A4A4A' }}
+                            sx={{ minWidth: '100px', fontWeight: 400, marginBottom: "10px", fontSize: "14px", color: '#4A4A4A' }}
                           >
-                            Total Outgoings
+                            Total:
                           </Typography>
                           <CurrencyInput
                             customInput={TextField}
@@ -534,16 +531,48 @@ function App() {
                             onValueChange={(value, name) => handleOnValueChange(value, name, setValues, values)}
                           />
                         </div>
+                        <div className="currency-input item">
+                          <Typography
+                            sx={{ minWidth: '100px', fontWeight: 400, marginBottom: "10px", fontSize: "14px", color: '#4A4A4A' }}
+                          >
+                            Annual Cashflow Positivity:
+                          </Typography>
+                          <CurrencyInput
+                            customInput={TextField}
+                            id="annualCashFlow"
+                            name="annualCashFlow"
+                            value={values.annualCashFlow}
+                            prefix='$'
+                            decimalScale={2}
+                            variant="filled"
+                            sx={{ "& label.Mui-focused": { color: "#78777", backgroundColor: "#78777" } }}
+                            onValueChange={(value, name) => handleOnValueChange(value, name, setValues, values)}
+                          />
+                        </div>
                       </div>
                     </div>
-                    <div className="card card-3">
+                    <div className="card card-4">
                       <div className="section-header">
-                        <h3>Potential Retirement Portfolio</h3>
+                        <h3>Trajectory of Retirement Portfolio</h3>
                       </div>
                       <div className="container item-grid">
+                        <div className="currency-input item item-3">
+                          <Typography
+                            sx={{ minWidth: '100px', fontWeight: 400, marginBottom: "10px", fontSize: "14px", color: '#4A4A4A' }}
+                          >
+                            Age:
+                          </Typography>
+                          <CurrencyInput
+                            customInput={TextField}
+                            id="age"
+                            name="age"
+                            value={values.age}
+                            onValueChange={(value, name) => handleOnValueChange(value, name, setValues, values)}
+                          />
+                        </div>
                         <div className="currency-input item item-4">
                           <Typography
-                            sx={{ minWidth: '100px', fontWeight: 500, color: '#4A4A4A' }}
+                            sx={{ minWidth: '100px', fontWeight: 400, marginBottom: "10px", fontSize: "14px", color: '#4A4A4A' }}
                           >
                             Expected Retirement Age:
                           </Typography>
@@ -559,7 +588,7 @@ function App() {
                         </div>
                         <div className="currency-input item">
                           <Typography
-                            sx={{ minWidth: '100px', fontWeight: 500, color: '#4A4A4A' }}
+                            sx={{ minWidth: '100px', fontWeight: 400, marginBottom: "10px", fontSize: "14px", color: '#4A4A4A' }}
                           >
                             Years Until Property Debt Free:
                           </Typography>
@@ -575,7 +604,7 @@ function App() {
                         </div>
                         <div className="currency-input item">
                           <Typography
-                            sx={{ minWidth: '100px', fontWeight: 500, color: '#4A4A4A' }}
+                            sx={{ minWidth: '100px', fontWeight: 400, marginBottom: "10px", fontSize: "14px", color: '#4A4A4A' }}
                           >
                             Property Valuation at Retirement:
                           </Typography>
@@ -598,9 +627,12 @@ function App() {
                           </Box>
 
                         </div>
+
+                        
+                       
                         <div className="currency-input item">
                           <Typography
-                            sx={{ minWidth: '100px', fontWeight: 500, color: '#4A4A4A' }}
+                            sx={{ minWidth: '100px', fontWeight: 400, marginBottom: "10px", fontSize: "14px", color: '#4A4A4A' }}
                           >
                             Cash Balance at Retirement:
                           </Typography>
@@ -624,7 +656,7 @@ function App() {
                         </div>
                         <div className="currency-input item">
                           <Typography
-                            sx={{ minWidth: '100px', fontWeight: 500, color: '#4A4A4A' }}
+                            sx={{ minWidth: '100px', fontWeight: 400, marginBottom: "10px", fontSize: "14px", color: '#4A4A4A' }}
                           >
                             Value of Rental Income at Retirement:
                           </Typography>
@@ -655,7 +687,7 @@ function App() {
                         />
                         <div className="currency-input item">
                           <Typography
-                            sx={{ minWidth: '100px', fontWeight: 500, color: '#4A4A4A' }}
+                            sx={{ minWidth: '100px', fontWeight: 400, marginBottom: "10px", fontSize: "14px", color: '#4A4A4A' }}
                           >
                             Annual Cashflow:
                           </Typography>
@@ -677,16 +709,16 @@ function App() {
                   </div>
                   <div className='flex-item-2'>
                     <aside>
-                      <div className="card card-4">
+                      <div className="card card-5">
                         <div className="section-header">
-                          <h3>Submit </h3>
+                          <h3>Submit</h3>
                         </div>
                         <div className="container">
                           <div className="currency-input">
                             <Typography
-                              sx={{ minWidth: '100px', marginBottom: '5px', fontWeight: 600, fontSize: 14, color: '#4A4A4A' }}
+                              sx={{ minWidth: '100px', marginBottom: "10px", fontWeight: 400, fontSize: "14px", color: '#4A4A4A' }}
                             >
-                              Agent:
+                              Interviewing Agent:
                             </Typography>
 
                             <TextField
@@ -699,43 +731,29 @@ function App() {
 
                           </div>
                           <div className="item">
-                          <Typography
-                            sx={{ minWidth: '100px', fontWeight: 500, color: '#4A4A4A' }}
-                          >
-                            Send to:
-                          </Typography>
-
-                          <TextField
-                            fullWidth
-                            // variant="filled"
-                            type="text"
-                            onBlur={handleBlur}
-                            onChange={handleChange}
-                            value={values.email}
-                            name="email"
-                            error={
-                              !!touched.email &&
-                              !!errors.email
-                            }
-                            helperText={
-                              touched.email && errors.email
-                            }
-                          />
-                        </div>
-                          {/* <div className="currency-item item item-5">
                             <Typography
-                              sx={{ minWidth: '100px', marginBottom: '5px', fontWeight: 300, fontSize: 14, color: '#4A4A4A' }}
+                              sx={{ minWidth: '100px', fontWeight: 400, marginBottom: "10px", fontSize: "14px", color: '#4A4A4A' }}
                             >
                               Send to:
                             </Typography>
+
                             <TextField
-                              customInput={TextField}
-                              id="email"
-                              name="email"
+                              fullWidth
+                              // variant="filled"
+                              type="text"
+                              onBlur={handleBlur}
+                              onChange={handleChange}
                               value={values.email}
-                              onValueChange={(value, name) => handleOnValueChange(value, name, setValues, values)}
+                              name="email"
+                              error={
+                                !!touched.email &&
+                                !!errors.email
+                              }
+                              helperText={
+                                touched.email && errors.email
+                              }
                             />
-                          </div> */}
+                          </div>
                           <Divider
                             sx={{
                               gridColumn: '1 / 3', // Span across column 1 and 2
@@ -753,7 +771,7 @@ function App() {
                             {loading ? (
                               <CircularProgress size={20} color="inherit" />
                             ) : (
-                              "Submit Calculator"
+                              "Submit"
                             )}
                           </Button>
                         </div>
