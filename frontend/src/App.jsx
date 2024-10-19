@@ -677,31 +677,6 @@ function App() {
                               </IconButton>
                             </Tooltip>
                           </Box>
-
-                        </div>
-                        <Divider
-                          sx={{
-                            gridColumn: '1 / 3', // Span across column 1 and 2
-                            my: 2, // Margin for spacing
-                          }}
-                        />
-                        <div className="currency-input item">
-                          <Typography
-                            sx={{ minWidth: '100px', fontWeight: 400, marginBottom: "10px", fontSize: "14px", color: '#4A4A4A' }}
-                          >
-                            Annual Cashflow:
-                          </Typography>
-                          <CurrencyInput
-                            customInput={TextField}
-                            id="annualCashFlow"
-                            name="annualCashFlow"
-                            value={values.annualCashFlow}
-                            prefix='$'
-                            decimalScale={2}
-                            variant="filled"
-                            sx={{ "& label.Mui-focused": { color: "#78777", backgroundColor: "#78777" } }}
-                            onValueChange={(value, name) => handleOnValueChange(value, name, setValues, values)}
-                          />
                         </div>
                       </div>
                     </div>
