@@ -626,7 +626,7 @@ function App() {
                               decimalScale={2}
                               onValueChange={(value, name) => handleOnValueChange(value, name, setValues, values)}
                             />
-                            <Tooltip title="This calculation assumes a 4% annual compounded growth, although the national average over the past 25 years has been 6.8%." arrow>
+                            <Tooltip title="This calculation assumes a 4% annual compounded growth, although the national average over the past 25 years has been 6.4%." arrow>
                               <IconButton size="small">
                                 <InfoIcon fontSize="small" />
                               </IconButton>
